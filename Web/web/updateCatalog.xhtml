@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Add Catalog</title>
+    <style type="text/css">
+        html {
+            font-size: 14px;
+        }
+    </style>
+</h:head>
+<h:body style="align-content: center">
+    <p:messages id="messages" showDetail="false" closable="true">
+        <p:autoUpdate/>
+    </p:messages>
+    <h:form id="frmUpdate" >
+        <h1>
+            Update Catalog
+        </h1>
+        <p>
+            <p:inputText id="id" value="#{UpdateCatalogView.id}"/>
+            <p:watermark for="id" value="#{CatalogView.selected.id}"></p:watermark>
+        </p>
+        <p>
+            <p:inputText id="name" value="#{UpdateCatalogView.name}"/>
+            <p:watermark for="name" value="#{CatalogView.selected.id}"></p:watermark>
+        </p>
+        <p>
+            <p:commandButton value="Update" id="btnUpdate"
+                             action="#{UpdateCatalogView.Update()}"
+                             update=":messages"/>
+        </p>
+        <p:blockUI block="frmUpdate" trigger="btnUpdate"/>
+    </h:form>
+</h:body>
+</html>

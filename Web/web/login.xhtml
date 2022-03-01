@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Login</title>
+</h:head>
+
+<h:body>
+    <p:messages id="messages" showDetail="false" closable="true">
+        <p:autoUpdate/>
+    </p:messages>
+    <h:form id="frmMain">
+        <h1>
+            Login
+        </h1>
+        <p>
+            <p:inputText placeholder="Username" value="#{Home.username}"/>
+        </p>
+        <p>
+            <p:password placeholder="Password" value="#{Home.password}"/>
+        </p>
+        <p>
+            <p:commandButton value="Login" id="btnLogin"
+                             action="#{Home.doLogin}"
+                             update=":messages"/>
+        </p>
+        <p:blockUI block="frmMain" trigger="btnLogin"/>
+    </h:form>
+</h:body>
+
+</html>
